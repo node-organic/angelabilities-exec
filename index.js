@@ -13,6 +13,7 @@ module.exports = function(angel){
         err = new Error("failed "+command+" on "+cwd)
       next && next(err)
     })
+    return child
   }
 
 
