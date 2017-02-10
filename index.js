@@ -3,7 +3,7 @@ var exec = require("child_process").exec
 module.exports = function(angel){
   angel.sh = function(command, next) {
     var cwd = process.cwd();
-    var child = exec(command, { cwd: cwd })
+    var child = exec(command, { cwd: cwd, maxBuffer: 2000 * 1024 })
     child.stderr.pipe(process.stderr)
     child.stdout.pipe(process.stdout)
     child.on("exit", function(code){
