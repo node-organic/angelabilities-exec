@@ -1,9 +1,25 @@
 # angelabilities-exec
 
-Handy common code for angel scripting.
+Handy common code for angel to execute shell commands
 
-## `angel.sh`
+## setup
 
-Execute arbitary shell commands and get their stdout & stderr piped through.
+```
+npm i angelabilities-exec --save-dev
+```
 
-    var spawnedProcess = angel.sh("touch this" [, function(err){ } ])
+## `angel.exec`
+
+Execute arbitrary shell commands and get their stdout & stderr piped through the running process.
+
+### callback style
+
+```
+let childProcess = angel.exec("touch this", function (err, statusCode) {})
+```
+
+### promise style
+
+```
+await angel.exec('touch this')
+```

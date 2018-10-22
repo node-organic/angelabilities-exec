@@ -17,7 +17,7 @@
   },
   "author": "Boris Filipov",
   "license": "MIT",
-  "description": "Handy common code for angel scripting.",
+  "description": "Handy common code for angel to execute shell commands",
   "scripts": {
     "test": "jest",
     "release-patch": "npm version patch && npm publish",

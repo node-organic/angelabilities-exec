@@ -13,7 +13,7 @@ module.exports = function (angel) {
     child.on('exit', function (code) {
       let err = null
       if (code !== 0) {
-        err = new Error('failed ' + command + ' on ' + cwd)
+        err = new Error('failed ' + command + ' on ' + cwd + ' with code ' + code)
       }
       if (err) {
         child.catchCb && child.catchCb(err)
