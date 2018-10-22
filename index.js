@@ -1,17 +1,33 @@
-var exec = require("child_process").exec
+const exec = require('child_process').exec
 
-module.exports = function(angel){
-  angel.sh = function(command, next) {
-    var cwd = process.cwd();
-    var child = exec(command, { cwd: cwd, maxBuffer: 2000 * 1024 })
+module.exports = function (angel) {
+  angel.exec = function (command, next) {
+    let cwd = process.cwd()
+    let child = exec(command, {
+      cwd: cwd,
+      maxBuffer: Infinity,
+      env: process.env
+    })
     child.stderr.pipe(process.stderr)
     child.stdout.pipe(process.stdout)
-    child.on("exit", function(code){
-      var err = null
-      if(code != 0)
-        err = new Error("failed "+command+" on "+cwd)
-      next && next(err)
+    child.on('exit', function (code) {
+      let err = null
+      if (code !== 0) {
+        err = new Error('failed ' + command + ' on ' + cwd)
+      }
+      if (err) {
+        child.catchCb && child.catchCb(err)
+      } else {
+        child.thenCb && child.thenCb(code)
+      }
+      next && next(err, code)
     })
+    child.then = function (cb) {
+      this.thenCb = cb
+    }
+    child.catch = function (cb) {
+      this.catchCb = cb
+    }
     return child
   }
 }
