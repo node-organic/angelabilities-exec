@@ -28,10 +28,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/outbounder/angelabilities-exec.git"
+    "url": "https://github.com/node-organic/angelabilities-exec.git"
   },
   "bugs": {
-    "url": "https://github.com/outbounder/angelabilities-exec/issues"
+    "url": "https://github.com/node-organic/angelabilities-exec/issues"
   },
-  "homepage": "https://github.com/outbounder/angelabilities-exec"
+  "homepage": "https://github.com/node-organic/angelabilities-exec"
 }
