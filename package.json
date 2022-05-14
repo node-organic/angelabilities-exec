@@ -12,9 +12,6 @@
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.0.1"
   },
-  "peerDependencies": {
-    "organic-angel": "0.3.x"
-  },
   "author": "Boris Filipov",
   "license": "MIT",
   "description": "Handy common code for angel to execute shell commands",
